@@ -1,4 +1,4 @@
-import Tasks from './Tasks';
+import Tasks from '../interfaces/Tasks';
 
 export const mockTasks: Tasks[] = [
   {

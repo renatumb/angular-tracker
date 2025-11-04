@@ -8,7 +8,7 @@
     "build-p": "ng build --porgress=true --optimization=true",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "server":"clear && json-server  db.json --port 5000"
+    "server": "clear && json-server  src/app/data_json/db.json --port 5000"
   },
   "private": true,
   "dependencies": {
