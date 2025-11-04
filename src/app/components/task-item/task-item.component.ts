@@ -1,4 +1,4 @@
-import {Component, Input} from '@angular/core';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
 import Task from '../../interfaces/Tasks';
 import {faTimes} from '@fortawesome/free-solid-svg-icons'
 import {IconDefinition} from '@fortawesome/angular-fontawesome';
@@ -11,5 +11,12 @@ import {IconDefinition} from '@fortawesome/angular-fontawesome';
 export class TaskItemComponent {
   @Input() task!: Task;
 
+  @Output() onDeleteTask = new EventEmitter<Task>();
+
   iconTimes: IconDefinition = faTimes;
+
+  onDelete() {
+    console.log(this.task);
+    this.onDeleteTask.emit( this.task );
+  }
 }

@@ -20,4 +20,11 @@ export class TaskService {
 //  return of(mockTasks);
     return this.httpHandler.get<Tasks[]>(`${this.API_URL}/`);
   }
+
+  public deleteTask(t: Tasks): Observable<void> {
+    console.log('deleteTask')
+      const url = `${this.API_URL}/${t.id}`;
+      const response = this.httpHandler.delete<void>(url);
+      return response;
+  }
 }
