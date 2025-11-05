@@ -31,4 +31,18 @@ export class TasksComponent implements OnInit {
       );
     });
   }
+
+  toggleReminder(taskItem: Task) {
+    console.log('AA: TasksComponent.toggleReminder() ' + JSON.stringify(this.tasks));
+    this.taskService.toggleReminder(taskItem).subscribe(value => {
+      console.log('BB: TasksComponent.toggleReminder() ' + JSON.stringify(this.tasks));
+
+      this.taskService.getTasks().subscribe(
+        taskData => {
+          this.tasks = taskData
+          console.log('CC: TasksComponent.toggleReminder() ' + JSON.stringify(this.tasks));
+        }
+      );
+    });
+  }
 }

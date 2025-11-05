@@ -1,4 +1,4 @@
-<div class="task">
+<div [ngClass]="task.reminder? 'reminder':'' " class="task" (dblclick)="onUpdate()">
   <h3>{{ task.text }}<fa-icon [ngStyle]="{'color':'red'}" [icon]="iconTimes" (click)="onDelete()" ></fa-icon></h3>
-  <p>{{ task.day }}</p>
+  <p>{{ task.day | date:'longDate' }}</p>
 </div>

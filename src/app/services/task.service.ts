@@ -22,9 +22,25 @@ export class TaskService {
   }
 
   public deleteTask(t: Tasks): Observable<void> {
-    console.log('deleteTask')
+    console.log('TaskService.deleteTask()')
       const url = `${this.API_URL}/${t.id}`;
       const response = this.httpHandler.delete<void>(url);
       return response;
+  }
+
+  toggleReminder(taskItem: Tasks): Observable<Tasks> {
+    console.log('TaskService.toggleReminder()')
+    const url = `${this.API_URL}/${taskItem.id}`;
+    //taskItem.reminder = !taskItem.reminder;
+
+    let taskCopy : Tasks ={
+      id: taskItem.id,
+      day: taskItem.day,
+      reminder: !taskItem.reminder,
+      text: taskItem.text
+    }
+
+    const response = this.httpHandler.put<Tasks>(url, taskCopy);
+    return response;
   }
 }
