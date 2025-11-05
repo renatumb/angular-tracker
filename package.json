@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve --port=4201 --verbose --watch",
+    "start": "ng serve --port=4202 --host 127.0.0.1 --verbose --watch",
     "build": "ng build --porgress=true",
     "build-p": "ng build --porgress=true --optimization=true",
     "watch": "ng build --watch --configuration development",

@@ -27,3 +27,5 @@ Package                      Version
 @angular-devkit/schematics   18.2.21 (cli-only)
 @schematics/angular          18.2.21 (cli-only)
 ```
+
+![img_1.png](img_1.png)
