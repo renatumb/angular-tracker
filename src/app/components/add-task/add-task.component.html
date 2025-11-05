@@ -1,18 +1,22 @@
 <form class="form-add">
   <div class="form-control">
     <label for="text">Task</label>
-    <input type="text" name="text" id="text" placeholder="Task Description"/>
+    <input type="text" name="text" id="text" placeholder="Task Description" [(ngModel)]="text" />
   </div>
   <!-- -->
   <div class="form-control">
     <label for="day">Day & Time</label>
-    <input type="datetime-local" name="day" id="day"/>
+    <input type="datetime-local" name="day" id="day" [(ngModel)]="day" />
   </div>
   <!-- -->
   <div class="form-control form-control-check">
     <label for="reminder">Set Reminder</label>
-    <input type="checkbox" name="reminder" id="reminder"/>
+    <input type="checkbox" name="reminder" id="reminder" [(ngModel)]="reminder" />
   </div>
   <!-- -->
   <input type="submit" value="Save Task" class="btn btn-block"/>
+
+  <br>text: {{text}}
+  <br>day: {{day}}
+  <br>reminder: {{reminder}}
 </form>
