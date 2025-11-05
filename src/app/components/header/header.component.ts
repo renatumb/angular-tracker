@@ -1,4 +1,5 @@
 import {Component} from '@angular/core';
+import {UiServiceService} from '../../services/uiService.service';
 
 @Component({
   selector: 'app-header',
@@ -7,7 +8,18 @@ import {Component} from '@angular/core';
 })
 export class HeaderComponent {
 
+  public showAddTask: boolean = false;
+
+  constructor(private uiService: UiServiceService) {
+    this.uiService.onToggleAddTaskComponent().subscribe(
+      value => {
+        this.showAddTask = value;
+        console.log("HeaderComponent.constructor --> uiService.onToggleAddTaskComponent() :" + value );
+      }
+    );
+  }
+
   toggleAddTask() {
-    alert();
+    this.uiService.toggleAddTaskComponent();
   }
 }

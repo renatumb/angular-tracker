@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 
 import Task from '../../interfaces/Tasks';
 import {TaskService} from '../../services/task.service';
+import {UiServiceService} from '../../services/uiService.service';
 
 @Component({
   selector: 'app-tasks',
@@ -11,8 +12,16 @@ import {TaskService} from '../../services/task.service';
 export class TasksComponent implements OnInit {
   tasks!: Task [];
 
-  constructor(private taskService: TaskService) {
+  public showAddTask: boolean = false;
 
+  constructor(private taskService: TaskService, private uiService: UiServiceService) {
+
+    this.uiService.onToggleAddTaskComponent().subscribe(
+      value => {
+        this.showAddTask = value;
+        console.log("TasksComponent.constructor --> uiService.onToggleAddTaskComponent() :" + value );
+      }
+    );
   }
 
   ngOnInit(): void {
