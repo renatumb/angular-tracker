@@ -43,4 +43,16 @@ export class TaskService {
     const response = this.httpHandler.put<Tasks>(url, taskCopy);
     return response;
   }
+
+  newTask(t: Tasks) {
+
+    let newTask = {
+      id: "" + t.id,
+      text: t.text,
+      day: new Date(t.day),
+      reminder: !t.reminder,
+    }
+    const response = this.httpHandler.post(`${this.API_URL}`, newTask);
+    return response;
+  }
 }

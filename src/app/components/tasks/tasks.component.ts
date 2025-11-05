@@ -45,4 +45,14 @@ export class TasksComponent implements OnInit {
       );
     });
   }
+
+  createNewTask($event: Task) {
+    console.log("TasksComponent.createNewTask() " + JSON.stringify($event) );
+
+    this.taskService.newTask($event).subscribe(value => {
+      this.taskService.getTasks().subscribe(
+        taskData => this.tasks = taskData,
+      );
+    })
+  }
 }
